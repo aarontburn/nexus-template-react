@@ -22,7 +22,6 @@
     "start-vite": "cd %npm_package_config_react-wrapper-directory% && npm run dev",
     "//react-start": "echo Starts webserver and initializes electron.",
     "react-start": "npm-run-all --parallel start-vite start",
-    "electronmon": "npm run build && electronmon ./dist/main.js --dev",
     "lint": "eslint -c .eslintrc --ext .ts ./src"
   },
   "author": "aarontburn",
@@ -31,18 +30,11 @@
     "@typescript-eslint/eslint-plugin": "^4.33.0",
     "@typescript-eslint/parser": "^4.33.0",
     "electron": "^28.0.0",
-    "electronmon": "^2.0.3",
     "eslint": "^7.32.0",
     "modules-export-script": "github:aarontburn/modules-export-script",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.8.3",
     "yauzl-promise": "^4.0.0"
-  },
-  "electronmon": {
-    "patterns": [
-      "!src/**/*.ts",
-      "!**/react-wrapper/**"
-    ]
   },
   "dependencies": {
     "module_builder": "github:aarontburn/modules-module-builder#main"
