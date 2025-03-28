@@ -13,7 +13,7 @@
     "//start": "echo Builds and starts electron.",
     "start": "npm run build && electron ./dist/main.js --dev",
     "//export": "echo Builds react-wrapper and exports module for production.",
-    "export": "vite-build && node node_modules/modules-export-script/export.js",
+    "export": "npm run vite-build && node node_modules/modules-export-script/export.js",
     "//dev_export": "echo Quick-export module during development. However, since the react-wrapper is ran via webserver, we don't need to build that.",
     "dev_export": "node node_modules/modules-export-script/export.js --dev",
     "//vite-build": "echo Builds react-wrapper to a single html file within /react_module/",

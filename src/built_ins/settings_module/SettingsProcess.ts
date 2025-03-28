@@ -7,9 +7,7 @@ import { ModuleSettings } from "module_builder/dist/ModuleSettings";
 import { Process, ModuleInfo } from "module_builder/dist/Process";
 import { Setting } from "module_builder/dist/Setting";
 import { SettingBox, ChangeEvent } from "module_builder/dist/SettingBox";
-import { HexColorSetting } from "module_builder/dist/settings/types/HexColorSetting";
-import { NumberSetting } from "module_builder/dist/settings/types/NumberSetting";
-import { BooleanSetting } from "module_builder/dist/settings/types/BooleanSetting";
+import { BooleanSetting, HexColorSetting, NumberSetting } from "module_builder/dist/settings/types";
 import { StorageHandler } from "module_builder/dist/StorageHandler";
 
 export class SettingsProcess extends Process {

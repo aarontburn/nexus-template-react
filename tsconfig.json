@@ -6,14 +6,13 @@
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "target": "ES2020",
     "paths": {
       "*": [
         "node_modules/*"
       ]
     }
   },
-  "exclude": ["**/react-wrapper/**", "**/developer.Sample_Module/**"],
+  "exclude": ["**/react-wrapper/**"],
   "include": [
     "src/**/*",
     "renderer.d.ts"

@@ -37,6 +37,7 @@ export class SampleModuleProcess extends Process {
 
     public registerSettings(): (Setting<unknown> | string)[] {
         return [
+            
  
         ]
     }
