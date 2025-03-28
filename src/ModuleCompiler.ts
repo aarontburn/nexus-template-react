@@ -221,7 +221,7 @@ export class ModuleCompiler {
         for (const subFile of subFiles) {
             const fullSubFilePath: string = subFile.path + "/" + subFile.name;
 
-            if (path.extname(subFile.name) === ".ts") {
+            if (path.extname(subFile.name) === ".ts" && !subFile.name.endsWith(".d.ts")) {
                 await this.compile(fullSubFilePath, outputDirectory);
 
             } else if (subFile.isDirectory()) {
