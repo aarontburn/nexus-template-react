@@ -10,7 +10,7 @@
       "*": [
         "node_modules/*"
       ]
-    }
+    } 
   },
   "exclude": ["**/react-wrapper/**"],
   "include": [
