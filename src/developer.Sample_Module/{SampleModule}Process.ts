@@ -1,7 +1,7 @@
 import * as path from "path";
-import { Process } from "./module_builder/Process";
-import { IPCCallback } from "./module_builder/IPCObjects";
-import { Setting } from "./module_builder/Setting";
+import { Process } from "module_builder/Process"
+import { IPCCallback } from "module_builder/IPCObjects";
+import { Setting } from "module_builder/Setting";
 
 
 export class SampleModuleProcess extends Process {

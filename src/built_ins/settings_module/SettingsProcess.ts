@@ -2,16 +2,15 @@ import * as path from "path";
 import * as fs from 'fs';
 import { BrowserWindow, OpenDialogOptions, app, dialog, shell } from 'electron';
 import { ModuleCompiler } from "../../ModuleCompiler";
-import { IPCCallback, IPCSource } from "../../developer.Sample_Module/module_builder/IPCObjects";
-import { ModuleSettings } from "../../developer.Sample_Module/module_builder/ModuleSettings";
-import { Process, ModuleInfo } from "../../developer.Sample_Module/module_builder/Process";
-import { Setting } from "../../developer.Sample_Module/module_builder/Setting";
-import { SettingBox, ChangeEvent } from "../../developer.Sample_Module/module_builder/SettingBox";
-import { BooleanSetting } from "../../developer.Sample_Module/module_builder/settings/types/BooleanSetting";
-import { HexColorSetting } from "../../developer.Sample_Module/module_builder/settings/types/HexColorSetting";
-import { NumberSetting } from "../../developer.Sample_Module/module_builder/settings/types/NumberSetting";
-import { StorageHandler } from "../../developer.Sample_Module/module_builder/StorageHandler";
-
+import { IPCCallback, IPCSource } from "module_builder/dist/IPCObjects";
+import { ModuleSettings } from "module_builder/dist/ModuleSettings";
+import { Process, ModuleInfo } from "module_builder/dist/Process";
+import { Setting } from "module_builder/dist/Setting";
+import { SettingBox, ChangeEvent } from "module_builder/dist/SettingBox";
+import { HexColorSetting } from "module_builder/dist/settings/types/HexColorSetting";
+import { NumberSetting } from "module_builder/dist/settings/types/NumberSetting";
+import { BooleanSetting } from "module_builder/dist/settings/types/BooleanSetting";
+import { StorageHandler } from "module_builder/dist/StorageHandler";
 
 export class SettingsProcess extends Process {
     public static readonly MODULE_NAME: string = "Settings";
