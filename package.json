@@ -2,6 +2,7 @@
   "name": "modules-template-react",
   "version": "1.0.0",
   "description": "React template to create an module.",
+  "author": "aarontburn",
   "config": {
     "react-wrapper-directory": "./src/developer.Sample_Module/react-wrapper"
   },
@@ -24,7 +25,6 @@
     "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/"
 
   },
-  "author": "aarontburn",
   "devDependencies": {
     "@types/yauzl-promise": "^4.0.1",
     "electron": "^28.0.0",
