@@ -1,36 +1,33 @@
 {
-  "name": "modules-quickstart-template",
+  "name": "modules-template-react",
   "version": "1.0.0",
-  "description": "Developer template to create a module.",
+  "description": "React template to create an module.",
   "config": {
     "react-wrapper-directory": "./src/developer.Sample_Module/react-wrapper"
   },
   "scripts": {
-    "//preinstall": "echo Initializes node within the react-wrapper. Ran automatically during npm install",
     "preinstall": "cd %npm_package_config_react-wrapper-directory% && npm install",
-    "//build": "echo Transpiles files (tsc), copies view code into the 'dist' folder, then exports the module into .modules_dev",
     "build": "tsc && node copyFiles.js --submodule && npm run dev_export",
-    "//start": "echo Builds and starts electron.",
-    "start": "npm run build && electron ./dist/main.js --dev",
-    "//export": "echo Builds react-wrapper and exports module for production.",
+    "start": "npm-run-all --parallel start-vite electron-start",
     "export": "npm run vite-build && node node_modules/modules-export-script/export.js",
-    "//dev_export": "echo Quick-export module during development. However, since the react-wrapper is ran via webserver, we don't need to build that.",
     "dev_export": "node node_modules/modules-export-script/export.js --dev",
-    "//vite-build": "echo Builds react-wrapper to a single html file within /react_module/",
     "vite-build": "cd %npm_package_config_react-wrapper-directory% && npm run build",
-    "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/",
     "start-vite": "cd %npm_package_config_react-wrapper-directory% && npm run dev",
-    "//react-start": "echo Starts webserver and initializes electron.",
-    "react-start": "npm-run-all --parallel start-vite start",
-    "lint": "eslint -c .eslintrc --ext .ts ./src"
+    "electron-start": "npm run build && electron ./dist/main.js --dev",
+
+    "//preinstall": "echo Initializes node within the react-wrapper. Ran automatically during npm install",
+    "//build": "echo Transpiles files (tsc), copies view code into the 'dist' folder, then exports the module into .modules_dev",
+    "//export": "echo Builds react-wrapper and exports module for production.",
+    "//start": "echo Builds and starts electron.",
+    "//dev_export": "echo Quick-export module during development. However, since the react-wrapper is ran via webserver, we don't need to build that.",
+    "//vite-build": "echo Builds react-wrapper to a single html file within /react_module/",
+    "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/"
+
   },
   "author": "aarontburn",
   "devDependencies": {
     "@types/yauzl-promise": "^4.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.33.0",
-    "@typescript-eslint/parser": "^4.33.0",
     "electron": "^28.0.0",
-    "eslint": "^7.32.0",
     "modules-export-script": "github:aarontburn/modules-export-script",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.8.3",
