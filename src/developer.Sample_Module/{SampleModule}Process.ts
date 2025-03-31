@@ -1,6 +1,4 @@
-import * as fs from "fs";
 import * as path from "path";
-
 import { Process } from "nexus-module-builder/Process"
 import { IPCCallback } from "nexus-module-builder/IPCObjects";
 import { Setting } from "nexus-module-builder/Setting";
