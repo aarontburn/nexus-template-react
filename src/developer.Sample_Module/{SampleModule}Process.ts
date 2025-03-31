@@ -1,7 +1,5 @@
 import * as path from "path";
-import { Process } from "nexus-module-builder/Process"
-import { IPCCallback } from "nexus-module-builder/IPCObjects";
-import { Setting } from "nexus-module-builder/Setting";
+import { IPCCallback, Process, Setting } from "@nexus/nexus-module-builder";
 
 
 export class SampleModuleProcess extends Process {

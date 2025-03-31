@@ -8,33 +8,25 @@
   },
   "scripts": {
     "preinstall": "cd %npm_package_config_react-wrapper-directory% && npm install",
-    "build": "tsc && node copyFiles.js --submodule && npm run dev_export",
-    "start": "npm-run-all --parallel start-vite electron-start",
-    "export": "npm run vite-build && node node_modules/nexus-exporter/export.js",
-    "dev_export": "node node_modules/nexus-exporter/export.js --dev",
-    "vite-build": "cd %npm_package_config_react-wrapper-directory% && npm run build",
-    "start-vite": "cd %npm_package_config_react-wrapper-directory% && npm run dev",
-    "electron-start": "npm run build && electron ./dist/main.js --dev",
-    "//preinstall": "echo Initializes node within the react-wrapper. Ran automatically during npm install",
-    "//build": "echo Transpiles files (tsc), copies view code into the 'dist' folder, then exports the module into .modules_dev",
-    "//export": "echo Builds react-wrapper and exports module for production.",
-    "//start": "echo Builds and starts electron.",
-    "//dev_export": "echo Quick-export module during development. However, since the react-wrapper is ran via webserver, we don't need to build that.",
-    "//vite-build": "echo Builds react-wrapper to a single html file within /react_module/",
-    "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/",
-    "update-nexus": "npm update nexus-exporter nexus-module-builder"
+    "build": "npm run dev_export",
+    "start": "npm-run-all --parallel vite:start electron-start",
+    "export": "npm run vite:build && node node_modules/@nexus/nexus-exporter/exporter.js",
+    "dev_export": "node node_modules/@nexus/nexus-exporter/exporter.js --dev",
+    "vite:build": "cd %npm_package_config_react-wrapper-directory% && npm run build",
+    "vite:start": "cd %npm_package_config_react-wrapper-directory% && npm run dev",
+    "electron-start": "npm run build && cd node_modules/@nexus/nexus-client && npm start",
+    "update-nexus": "npm update @nexus/nexus-exporter @nexus/nexus-module-builder @nexus/nexus-client"
   },
   "devDependencies": {
+    "@nexus/nexus-client": "https://gitpkg.vercel.app/aarontburn/nexus-core/nexus?main",
+    "@nexus/nexus-exporter": "https://gitpkg.vercel.app/aarontburn/nexus-core/exporter?main",
+    "@nexus/nexus-module-builder": "https://gitpkg.vercel.app/aarontburn/nexus-core/module-builder/dist?main",
     "@types/yauzl-promise": "^4.0.1",
     "electron": "^28.0.0",
     "install": "^0.13.0",
-    "nexus-exporter": "https://gitpkg.vercel.app/aarontburn/nexus-core/export?main",
     "npm": "^11.2.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.8.3",
     "yauzl-promise": "^4.0.0"
-  },
-  "dependencies": {
-    "nexus-module-builder": "https://gitpkg.vercel.app/aarontburn/nexus-core/module-builder/dist?main"
   }
 }
