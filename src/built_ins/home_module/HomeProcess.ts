@@ -1,7 +1,7 @@
-import { IPCCallback } from "module_builder/dist/IPCObjects";
-import { Process } from "module_builder/dist/Process";
-import { Setting } from "module_builder/dist/Setting";
-import { NumberSetting, StringSetting } from "module_builder/dist/settings/types";
+import { IPCCallback } from "nexus-module-builder/IPCObjects";
+import { Process } from "nexus-module-builder/Process";
+import { Setting } from "nexus-module-builder/Setting";
+import { NumberSetting, StringSetting } from "nexus-module-builder/settings/types";
 import * as path from "path";
 
 

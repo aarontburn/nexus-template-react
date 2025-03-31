@@ -40,15 +40,6 @@ if (process.argv.includes('--submodule')) {
             .filter(path => fs.statSync(path).isDirectory())
         return [srcPath, ...flatten(getDirectories(srcPath).map(getDirectoriesRecursive))];
     }
-
-    const subfolders = getDirectoriesRecursive(`${PWD.replace('src', 'dist')}`);
-    for (const f of subfolders) {
-        const parents = f.split('\\');
-        if (parents.at(-1) === 'module_builder' && parents.at(-2) !== 'dist') {
-            fs.cpSync(f, PWD.replace('src', 'dist') + '/module_builder/', { recursive: true })
-            return;
-        }
-    }
 }
 
 

@@ -4,9 +4,9 @@ import * as path from 'path';
 import ts from 'typescript';
 import * as yauzl from 'yauzl-promise';
 import { pipeline } from 'stream/promises';
-import { IPCCallback } from "module_builder/dist/IPCObjects";
-import { Process, ModuleInfo } from "module_builder/dist/Process";
-import { StorageHandler } from "module_builder/dist/StorageHandler";
+import { IPCCallback } from "nexus-module-builder/IPCObjects";
+import { Process, ModuleInfo } from "nexus-module-builder/Process";
+import { StorageHandler } from "nexus-module-builder/StorageHandler";
 
 
 export class ModuleCompiler {
@@ -197,10 +197,17 @@ export class ModuleCompiler {
                 const viewFolder: string = path.join(__dirname, "/view");
                 const relativeCSSPath: string = path.join(viewFolder, "colors.css");
                 const relativeFontPath: string = path.join(viewFolder, "Yu_Gothic_Light.ttf");
-                // await fs.promises.mkdir(builtDirectory + "/module_builder/", { recursive: true })
-                await fs.promises.copyFile(relativeCSSPath, builtDirectory + "/node_modules/module_builder/colors.css");
-                await fs.promises.copyFile(relativeFontPath, builtDirectory + "/node_modules/module_builder/Yu_Gothic_Light.ttf");
-    
+
+
+                await this.copyFromProd(
+                    path.normalize(path.join(__dirname, "../node_modules/nexus-module-builder/")),
+                    `${builtDirectory}/node_modules/nexus-module-builder`
+                )
+
+
+                await fs.promises.copyFile(relativeCSSPath, builtDirectory + "/node_modules/nexus-module-builder/colors.css");
+                await fs.promises.copyFile(relativeFontPath, builtDirectory + "/node_modules/nexus-module-builder/Yu_Gothic_Light.ttf");
+
 
             }
 
@@ -239,7 +246,6 @@ export class ModuleCompiler {
 
 
     private static async copyFromProd(sourcePath: string, destinationPath: string) {
-        console.log(sourcePath)
         await fs.promises.mkdir(destinationPath, { recursive: true })
 
         const files: string[] = await fs.promises.readdir(sourcePath);
@@ -314,7 +320,7 @@ export class ModuleCompiler {
                     if (href.substring(0, 4) !== "href") {
                         throw new Error("Could not parse css line: " + css);
                     }
-                    const replacedCSS: string = href.replace("../../", "./node_modules/module_builder/");
+                    const replacedCSS: string = href.replace("../../", "./node_modules/nexus-module-builder/");
                     const finalCSS: string = `\t<link rel="stylesheet" ${replacedCSS}">`
                     lines[i + 1] = finalCSS
 

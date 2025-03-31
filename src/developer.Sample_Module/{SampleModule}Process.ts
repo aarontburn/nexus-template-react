@@ -1,7 +1,9 @@
+import * as fs from "fs";
 import * as path from "path";
-import { Process } from "module_builder/Process"
-import { IPCCallback } from "module_builder/IPCObjects";
-import { Setting } from "module_builder/Setting";
+
+import { Process } from "nexus-module-builder/Process"
+import { IPCCallback } from "nexus-module-builder/IPCObjects";
+import { Setting } from "nexus-module-builder/Setting";
 
 
 export class SampleModuleProcess extends Process {

@@ -1,5 +1,5 @@
 {
-  "name": "modules-template-react",
+  "name": "nexus-template-react",
   "version": "1.0.0",
   "description": "React template to create an module.",
   "author": "aarontburn",
@@ -10,30 +10,31 @@
     "preinstall": "cd %npm_package_config_react-wrapper-directory% && npm install",
     "build": "tsc && node copyFiles.js --submodule && npm run dev_export",
     "start": "npm-run-all --parallel start-vite electron-start",
-    "export": "npm run vite-build && node node_modules/modules-export-script/export.js",
-    "dev_export": "node node_modules/modules-export-script/export.js --dev",
+    "export": "npm run vite-build && node node_modules/nexus-exporter/export.js",
+    "dev_export": "node node_modules/nexus-exporter/export.js --dev",
     "vite-build": "cd %npm_package_config_react-wrapper-directory% && npm run build",
     "start-vite": "cd %npm_package_config_react-wrapper-directory% && npm run dev",
     "electron-start": "npm run build && electron ./dist/main.js --dev",
-
     "//preinstall": "echo Initializes node within the react-wrapper. Ran automatically during npm install",
     "//build": "echo Transpiles files (tsc), copies view code into the 'dist' folder, then exports the module into .modules_dev",
     "//export": "echo Builds react-wrapper and exports module for production.",
     "//start": "echo Builds and starts electron.",
     "//dev_export": "echo Quick-export module during development. However, since the react-wrapper is ran via webserver, we don't need to build that.",
     "//vite-build": "echo Builds react-wrapper to a single html file within /react_module/",
-    "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/"
-
+    "//start-vite": "echo Starts the react-wrapper webserver, usually on http://localhost:5173/",
+    "update-nexus": "npm update nexus-exporter nexus-module-builder"
   },
   "devDependencies": {
     "@types/yauzl-promise": "^4.0.1",
     "electron": "^28.0.0",
-    "modules-export-script": "github:aarontburn/modules-export-script",
+    "install": "^0.13.0",
+    "nexus-exporter": "https://gitpkg.vercel.app/aarontburn/nexus-core/export?main",
+    "npm": "^11.2.0",
     "npm-run-all": "^4.1.5",
     "typescript": "^4.8.3",
     "yauzl-promise": "^4.0.0"
   },
   "dependencies": {
-    "module_builder": "github:aarontburn/modules-module-builder#main"
+    "nexus-module-builder": "https://gitpkg.vercel.app/aarontburn/nexus-core/module-builder/dist?main"
   }
 }

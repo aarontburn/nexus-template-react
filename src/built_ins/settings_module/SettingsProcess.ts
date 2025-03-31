@@ -2,13 +2,13 @@ import * as path from "path";
 import * as fs from 'fs';
 import { BrowserWindow, OpenDialogOptions, app, dialog, shell } from 'electron';
 import { ModuleCompiler } from "../../ModuleCompiler";
-import { IPCCallback, IPCSource } from "module_builder/dist/IPCObjects";
-import { ModuleSettings } from "module_builder/dist/ModuleSettings";
-import { Process, ModuleInfo } from "module_builder/dist/Process";
-import { Setting } from "module_builder/dist/Setting";
-import { SettingBox, ChangeEvent } from "module_builder/dist/SettingBox";
-import { BooleanSetting, HexColorSetting, NumberSetting } from "module_builder/dist/settings/types";
-import { StorageHandler } from "module_builder/dist/StorageHandler";
+import { IPCCallback, IPCSource } from "nexus-module-builder/IPCObjects";
+import { ModuleSettings } from "nexus-module-builder/ModuleSettings";
+import { Process, ModuleInfo } from "nexus-module-builder/Process";
+import { Setting } from "nexus-module-builder/Setting";
+import { SettingBox, ChangeEvent } from "nexus-module-builder/SettingBox";
+import { BooleanSetting, HexColorSetting, NumberSetting } from "nexus-module-builder/settings/types";
+import { StorageHandler } from "nexus-module-builder/StorageHandler";
 
 export class SettingsProcess extends Process {
     public static readonly MODULE_NAME: string = "Settings";
@@ -364,8 +364,6 @@ export class SettingsProcess extends Process {
             return;
         }
 
-
-        console.log("adding " + module.getIPCSource())
         this.moduleSettingsList.set(module.getIPCSource(), module.getSettings());
     }
 
