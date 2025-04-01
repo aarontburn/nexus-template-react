@@ -2,7 +2,7 @@
 /**
  *  The ID of the associated module. Must match the process.
  */
-const MODULE_ID: string = "developer.Sample_Module";
+const MODULE_ID: string = "developer.Sample_React_Module";
 
 /**
  *  Sends information to the the process.

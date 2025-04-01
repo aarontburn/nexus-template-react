@@ -4,9 +4,9 @@ import { IPCCallback, Process, Setting } from "@nexus/nexus-module-builder";
 
 export default class SampleModuleProcess extends Process {
 
-    private static readonly MODULE_NAME: string = "Sample Module";
-    private static readonly MODULE_ID: string = "developer.Sample_Module";
-    private static readonly HTML_PATH: string = path.join(__dirname, "./{SampleModule}HTML.html");
+    private static readonly MODULE_NAME: string = "Sample React Module";
+    private static readonly MODULE_ID: string = "developer.Sample_React_Module";
+    private static readonly HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
 
 
     /**

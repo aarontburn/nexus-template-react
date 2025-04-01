@@ -4,7 +4,7 @@
   "description": "React template to create an module.",
   "author": "aarontburn",
   "config": {
-    "react-wrapper-directory": "./src/developer.Sample_Module/react-wrapper"
+    "react-wrapper-directory": "./src/renderer/react-wrapper"
   },
   "scripts": {
     "preinstall": "cd %npm_package_config_react-wrapper-directory% && npm install",
