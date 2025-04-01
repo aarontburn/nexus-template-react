@@ -1,11 +1,13 @@
 import * as path from "path";
 import { IPCCallback, Process, Setting } from "@nexus/nexus-module-builder";
 
+const MODULE_NAME: string = "{EXPORTED_MODULE_NAME}";
+const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
+
+
 
 export default class SampleModuleProcess extends Process {
 
-    private static readonly MODULE_NAME: string = "Sample React Module";
-    private static readonly MODULE_ID: string = "developer.Sample_React_Module";
     private static readonly HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
 
 
@@ -15,8 +17,8 @@ export default class SampleModuleProcess extends Process {
      */
     public constructor(ipcCallback: IPCCallback) {
         super(
-            SampleModuleProcess.MODULE_ID,
-            SampleModuleProcess.MODULE_NAME,
+            MODULE_ID,
+            MODULE_NAME,
             SampleModuleProcess.HTML_PATH,
             ipcCallback);
 

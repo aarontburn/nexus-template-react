@@ -1,8 +1,7 @@
-
-/**
- *  The ID of the associated module. Must match the process.
- */
-const MODULE_ID: string = "developer.Sample_React_Module";
+// This is auto-replaced during export. DO NOT MODIFY.
+const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
+// ---------------------------------------------------
+// ---------------------------------------------------
 
 /**
  *  Sends information to the the process.
