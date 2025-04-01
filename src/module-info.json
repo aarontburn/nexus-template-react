@@ -1,5 +1,5 @@
 {
-    "module_name": "React Module Quickstart Template",
+    "name": "React Module Quickstart Template",
     "author": "aarontburn",
     "version": "1.0.0",
     "description": "A template to develop react applications for Modules.",
