@@ -10,10 +10,10 @@ const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
  *  @param data         Any data to send.
  */
 const sendToProcess = (eventType: string, ...data: any[]): Promise<void> => {
-    return window.parent.ipc.send(MODULE_ID, eventType, data);
+    return window.parent.ipc.send(this.window, eventType, data);
 }
 
-window.parent.ipc.on(MODULE_ID, (_, eventType: string, data: any[]) => {
+window.parent.ipc.on(this.window, (_, eventType: string, data: any[]) => {
     handleEvent(eventType, data);
 });
 
