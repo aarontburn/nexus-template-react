@@ -9,9 +9,13 @@ const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
  *  @param eventType    The name of the event.
  *  @param data         Any data to send.
  */
-function sendToProcess(eventType: string, data: any = []): Promise<any> {
-    return window.parent.ipc.send(MODULE_ID, eventType, ...data);
+const sendToProcess = (eventType: string, ...data: any[]): Promise<void> => {
+    return window.parent.ipc.send(MODULE_ID, eventType, data);
 }
+
+window.parent.ipc.on(MODULE_ID, (_, eventType: string, data: any[]) => {
+    handleEvent(eventType, data);
+});
 
 const iframe: HTMLIFrameElement = document.getElementById('react-iframe') as HTMLIFrameElement;
 if (window.parent.common.args.includes("--dev") && 
@@ -29,9 +33,9 @@ function sendToIFrame(eventType: string, data: any = []) {
  * 
  *  In a react context, simply passes the message to the react window.
  */
-window.parent.ipc.on(MODULE_ID, async (_, eventType: string, data: any = []) => {
+const handleEvent = (eventType: string, data: any[]) => {
     sendToIFrame(eventType, data);
-});
+};
 
 
 
@@ -39,7 +43,7 @@ window.parent.ipc.on(MODULE_ID, async (_, eventType: string, data: any = []) => 
  *  React only: Listen to events from the react renderer and passes it to the process.
  */
 window.addEventListener("message", (event) => {
-    sendToProcess(event.data.eventType, event.data.data)
+    sendToProcess(event.data.eventType, ...event.data.data)
 });
 
 

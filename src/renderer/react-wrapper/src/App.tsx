@@ -9,7 +9,7 @@ function App() {
     const [count, setCount] = useState(0)
 
     useEffect(() => {
-        const func = addProcessListener((eventType: string, data: any) => {
+        const func = addProcessListener((eventType: string, data: any[]) => {
             switch (eventType) {
                 default: {
                     console.log("Uncaught message: " + eventType + " | " + data)

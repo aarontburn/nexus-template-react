@@ -39,7 +39,7 @@ export default class SampleProcess extends Process {
     }
 
 
-    public async handleEvent(eventType: string, data: any): Promise<any> {
+    public async handleEvent(eventType: string, data: any[]): Promise<any> {
         switch (eventType) {
             case "init": {
                 this.initialize();
