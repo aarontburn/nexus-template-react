@@ -6,17 +6,17 @@
     "sourceMap": true,
     "outDir": "dist",
     "baseUrl": ".",
-    "paths": {  
+    "paths": {
       "*": [
         "node_modules/*"
       ]
-    } 
+    }
   },
   "exclude": [
     "**/react-wrapper/**"
-],
+  ],
   "include": [
     "src/**/*",
-    "renderer.d.ts"
+    "./node_modules/@nexus/nexus-client/renderer.d.ts"
   ]
 }

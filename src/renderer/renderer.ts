@@ -14,7 +14,8 @@ function sendToProcess(eventType: string, data: any = []): Promise<any> {
 }
 
 const iframe: HTMLIFrameElement = document.getElementById('react-iframe') as HTMLIFrameElement;
-if (window.parent.common.args.includes("--dev")) {
+if (window.parent.common.args.includes("--dev") && 
+    window.parent.common.args.includes(`--last_exported_id:${MODULE_ID}`.toLowerCase())) {
     // Or change this to wherever the react webserver is hosted.
     iframe.src = "http://localhost:5173/"
 }
