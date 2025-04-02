@@ -1,28 +1,21 @@
 import * as path from "path";
-import { IPCCallback, Process, Setting } from "@nexus/nexus-module-builder";
+import { Process, Setting } from "@nexus/nexus-module-builder";
 
-const MODULE_NAME: string = "{EXPORTED_MODULE_NAME}";
+// These is replaced to the ID specified in export-config.js during export. DO NOT MODIFY.
 const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
+const MODULE_NAME: string = "{EXPORTED_MODULE_NAME}";
+// ---------------------------------------------------
+const HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
 
 
-
-export default class SampleModuleProcess extends Process {
-
-    private static readonly HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
-
+export default class SampleProcess extends Process {
 
     /**
      *  The constructor. Should not directly be called, 
      *      and should not contain logic relevant to the renderer.
      */
-    public constructor(ipcCallback: IPCCallback) {
-        super(
-            MODULE_ID,
-            MODULE_NAME,
-            SampleModuleProcess.HTML_PATH,
-            ipcCallback);
-
-
+    public constructor() {
+        super(MODULE_ID, MODULE_NAME, HTML_PATH);
     }
 
     /**
@@ -36,10 +29,7 @@ export default class SampleModuleProcess extends Process {
 
 
     public registerSettings(): (Setting<unknown> | string)[] {
-        return [
-            
- 
-        ]
+        return []
     }
 
 
