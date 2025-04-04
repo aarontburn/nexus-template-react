@@ -13,7 +13,7 @@ const sendToProcess = (eventType: string, ...data: any[]): Promise<void> => {
     return window.parent.ipc.send(this.window, eventType, data);
 }
 
-window.parent.ipc.on(this.window, (_, eventType: string, data: any[]) => {
+window.parent.ipc.on(this.window, (eventType: string, data: any[]) => {
     handleEvent(eventType, data);
 });
 
@@ -24,7 +24,7 @@ if (window.parent.common.args.includes("--dev") &&
     iframe.src = "http://localhost:5173/"
 }
 
-function sendToIFrame(eventType: string, data: any = []) {
+function sendToIFrame(eventType: string, ...data: any[]) {
     iframe.contentWindow.postMessage({ eventType: eventType, data: data }, "*");
 }
 
@@ -34,7 +34,7 @@ function sendToIFrame(eventType: string, data: any = []) {
  *  In a react context, simply passes the message to the react window.
  */
 const handleEvent = (eventType: string, data: any[]) => {
-    sendToIFrame(eventType, data);
+    sendToIFrame(eventType, ...data);
 };
 
 
