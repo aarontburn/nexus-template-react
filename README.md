@@ -64,7 +64,7 @@ Each module consists of a:
 ## Process Structure
 The process file is the backend of your module. It has full access to Node packages. It does not have direct access to the frontend - you will need to communicate and send data to the frontend and do the updating there.
 
-All `console.log()` will output to the terminal.
+All `console.log()` will output to your IDE terminal.
 
 ### Important Functions
 
@@ -95,7 +95,21 @@ For more details about the process functions, see the [Process guide](https://gi
 ## Renderer Structure 
 When developing a module with React, the renderer structure changes. Most of your changes will be done within `/react-wrapper/`, where within it is a standard `Vite + React + TypeScript` web app.
 
-During development, the React application 
+During development, the React application will be hosted on a local webserver. By default, it is hosted on `http://localhost:5173/`. If you need to change this, modify `src/renderer/renderer.ts`
+
+```
+...
+// src/renderer/renderer.ts
+
+if (window.parent.common.args.includes("--dev") && 
+    window.parent.common.args.includes(`--last_exported_id:${MODULE_ID}`.toLowerCase())) {
+
+    iframe.src = "http://localhost:5173/" 	// <- Change this line to wherever the React server is being hosted
+
+}
+...
+```
+``
 
 
  # Exporting your Module
