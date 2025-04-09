@@ -9,7 +9,3 @@ export function addProcessListener(callback: (eventType: string, ...data: any) =
     window.addEventListener("message", func);
     return func;
 }
-
-export function removeProcessListener(removeFunction: (event: MessageEvent) => void) {
-    window.removeEventListener("message", removeFunction);
-}

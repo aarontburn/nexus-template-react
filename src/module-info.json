@@ -1,8 +1,8 @@
 {
     "name": "{EXPORTED_MODULE_NAME}",
-    "author": "aarontburn",
+    "author": "developer",
     "version": "1.0.0",
-    "description": "A template to develop react applications for Modules.",
-    "build_version": 14,
-    "platforms": []
+    "description": "A template to create a module for Nexus using React.",
+    "build_version": 1,
+    "platforms": ["win32", "linux", "darwin"]
 }

@@ -1,5 +1,5 @@
 import * as path from "path";
-import { Process, Setting } from "@nexus/nexus-module-builder";
+import { DataResponse, Process, Setting } from "@nexus/nexus-module-builder";
 import { BooleanSetting } from "@nexus/nexus-module-builder/settings/types";
 
 // These is replaced to the ID specified in export-config.js during export. DO NOT MODIFY.
@@ -33,14 +33,29 @@ export default class SampleProcess extends Process {
 
         this.refreshAllSettings();
         // Request the accent color from the built-in 'Settings' module and send it to the renderer.
-        this.requestExternal("built_ins.Settings", "getAccentColor").then(value => {
-            this.sendToRenderer("accent-color-changed", value)
+        this.requestExternal("built_ins.Settings", "getAccentColor").then((value: DataResponse) => {
+            this.sendToRenderer("accent-color-changed", value.body)
         });
-
-
     }
 
+    public async handleEvent(eventType: string, data: any[]): Promise<any> {
+        switch (eventType) {
+            // This is called when the renderer is ready to receive events.
+            case "init": {
+                this.initialize();
+                break;
+            }
+            case "count": {
+                console.info("Sample React App: Received 'count': " + data[0])
+                break;
+            }
 
+            default: {
+                console.info(`Sample React App: Unhandled event: eventType: ${eventType} | data: ${data}`);
+                break;
+            }
+        }
+    }
 
     public registerSettings(): (Setting<unknown> | string)[] {
         return [
@@ -59,25 +74,8 @@ export default class SampleProcess extends Process {
         if (modifiedSetting.getAccessID() === "sample_bool") {
             this.sendToRenderer('sample-setting', modifiedSetting.getValue());
         }
-
     }
 
 
-    public async handleEvent(eventType: string, data: any[]): Promise<any> {
-        switch (eventType) {
-            // This is called when the renderer is ready to receive events.
-            case "init": {
-                this.initialize();
-                break;
-            }
-            case "count": {
-                console.info("Sample React App: Received 'count': " + data[0])
-                break;
-            }
-
-            default: {
-            }
-        }
-    }
 
 }

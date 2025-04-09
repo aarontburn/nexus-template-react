@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { addProcessListener, removeProcessListener, sendToProcess } from './ModulesBridge';
+import { addProcessListener, sendToProcess } from './ModulesBridge';
 
 
 function App() {
     const [count, setCount] = useState(0);
-    const [sampleSettingOn, setSampleSetting] = useState(false);
+    const [isSampleSettingOn, setSampleSetting] = useState(false);
 
     useEffect(() => {
         const listener = addProcessListener((eventType: string, data: any[]) => {
@@ -15,6 +15,7 @@ function App() {
                     break;
                 }
                 case "accent-color-changed": {
+                    console.log(data[0])
                     document.documentElement.style.cssText = "--accent-color: " + data[0];
                     break;
                 }
@@ -26,7 +27,7 @@ function App() {
         });
         sendToProcess("init");
 
-        return () => removeProcessListener(listener);
+        return () => window.removeEventListener("message", listener);
     }, []);
 
 
@@ -40,7 +41,7 @@ function App() {
             </div>
             <h1><b>Nexus</b></h1>
             <h1>Sample React App</h1>
-            <p>Sample setting is <b>{sampleSettingOn ? "on" : "off"}</b>. Visit the <b>Settings</b> module to change it.</p>
+            <p>Sample setting is <b>{isSampleSettingOn ? "on" : "off"}</b>. Visit the <b>Settings</b> module to change it.</p>
             <div className="card">
                 <button onClick={() => setCount((count) => count + 1)}>
                     count is {count}
