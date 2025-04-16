@@ -7,6 +7,10 @@ const MODULE_ID: string = "{EXPORTED_MODULE_ID}";
 const MODULE_NAME: string = "{EXPORTED_MODULE_NAME}";
 // ---------------------------------------------------
 const HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
+
+/* If you have an icon, specify the relative path from this file. */
+/* Can be a .png, .jpeg, .jpg, or .svg */
+
 // const ICON_PATH: string = path.join(__dirname, "...");
 const ICON_PATH: string = undefined;
 
@@ -21,7 +25,14 @@ export default class SampleProcess extends Process {
      *  @see initialize
      */
     public constructor() {
-        super(MODULE_ID, MODULE_NAME, HTML_PATH, ICON_PATH);
+		super({
+			moduleID: MODULE_ID,
+			moduleName: MODULE_NAME,
+			paths: {
+				htmlPath: HTML_PATH,
+                iconPath: ICON_PATH
+			}
+		});
     }
 
     /**
@@ -33,7 +44,7 @@ export default class SampleProcess extends Process {
 
         this.refreshAllSettings();
         // Request the accent color from the built-in 'Settings' module and send it to the renderer.
-        this.requestExternal("built_ins.Settings", "getAccentColor").then((value: DataResponse) => {
+        this.requestExternal("nexus.Settings", "getAccentColor").then((value: DataResponse) => {
             this.sendToRenderer("accent-color-changed", value.body)
         });
     }
