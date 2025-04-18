@@ -25,21 +25,21 @@ export default class SampleProcess extends Process {
      *  @see initialize
      */
     public constructor() {
-		super({
-			moduleID: MODULE_ID,
-			moduleName: MODULE_NAME,
-			paths: {
-				htmlPath: HTML_PATH,
+        super({
+            moduleID: MODULE_ID,
+            moduleName: MODULE_NAME,
+            paths: {
+                htmlPath: HTML_PATH,
                 iconPath: ICON_PATH
-			}
-		});
+            }
+        });
     }
 
     /**
      *  The entry point of the module. Will be called once the 
      *      renderer sends the 'init' signal.
      */
-    public initialize(): void {
+    public async initialize(): Promise<void> {
         super.initialize(); // This should be called.
 
         this.refreshAllSettings();
@@ -81,7 +81,7 @@ export default class SampleProcess extends Process {
     }
 
 
-    public refreshSettings(modifiedSetting: Setting<unknown>): void {
+    public async onSettingModified(modifiedSetting: Setting<unknown>): Promise<void> {
         if (modifiedSetting.getAccessID() === "sample_bool") {
             this.sendToRenderer('sample-setting', modifiedSetting.getValue());
         }
