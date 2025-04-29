@@ -17,6 +17,7 @@
   ],
   "include": [
     "src/**/*",
-    "./node_modules/@nexus/nexus-client/renderer.d.ts"
-, "electron.ts"  ]
+    "./node_modules/@nexus-app/nexus-client/renderer.d.ts",
+    "electron.ts"
+  ]
 }
