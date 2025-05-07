@@ -13,5 +13,12 @@ To learn how to develop a module for Nexus, visit [Building Your First Module](h
 
 ## Examples
 
-### [Nexus: Debug Console](https://github.com/aarontburn/nexus-debug-console)
-A useful debug console/terminal.
+### [Debug Console](https://github.com/aarontburn/nexus-debug-console)
+A debug console/terminal, useful for developers or for those wanting to view console output.
+
+### [Screenshot Manager](https://github.com/aarontburn/nexus-screenshot-manager)
+A screenshot manager. 
+
+
+### [Color Picker](https://github.com/aarontburn/nexus-color-picker)
+Pick colors and edit colors from your screen, perfect for graphic or web designers.

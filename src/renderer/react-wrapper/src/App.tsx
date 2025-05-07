@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import './App.css'
-import { addProcessListener, sendToProcess } from './ModulesBridge';
+import { addProcessListener, sendToProcess } from './nexus-bridge';
 
 
 function App() {
