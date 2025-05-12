@@ -3,7 +3,7 @@ export function sendToProcess(eventType: string, ...data: any[]): void {
 }
 
 export function addProcessListener(callback: (eventType: string, ...data: any) => void) {
-    const func = (event: MessageEvent) => {
+    const func = (event: MessageEvent): void => {
         callback(event.data.eventType, event.data.data);
     };
     window.addEventListener("message", func);

@@ -4,10 +4,10 @@
     "version": "1.0.0",
     "author": "developer",
     "description": "A template to create a module for Nexus using React.",
-    "build-version": 1,
     "link": "https://github.com/aarontburn/nexus-template-react",
     "platforms": ["win32", "linux", "darwin"],
     "build": {
+        "build-version": 1,
         "excluded": ["electron.ts", "./renderer/react-wrapper"],
         "included": ["./renderer/react-wrapper/react_module"],
         "process": "./process/main.js",
@@ -20,7 +20,7 @@
             {
                 "from": "{EXPORTED_MODULE_NAME}",
                 "to": "%name%",
-                "at": ["./process/main.ts", "./module-info.json"]
+                "at": ["./process/main.ts"]
             }
         ]
     }
