@@ -15,7 +15,6 @@ function App() {
                     break;
                 }
                 case "accent-color-changed": {
-                    console.log(data[0])
                     document.documentElement.style.cssText = "--accent-color: " + data[0];
                     break;
                 }
