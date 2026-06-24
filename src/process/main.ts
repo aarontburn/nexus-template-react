@@ -8,19 +8,16 @@ const MODULE_NAME: string = "{EXPORTED_MODULE_NAME}";
 // ---------------------------------------------------
 const HTML_PATH: string = path.join(__dirname, "../renderer/index.html");
 
-
 // If you have an icon, specify the relative path from this file.
-// Can be a .png, .jpeg, .jpg, or .svg
-// const ICON_PATH: string = path.join(__dirname, "...")
-
-const ICON_PATH: string = undefined;
+//      Can be a .png, .jpeg, .jpg, or .svg
+const ICON_PATH: string | undefined = undefined; // path.join(__dirname, "...")
 
 
 export default class SampleProcess extends Process {
 
     /**
      *  The constructor. At this point, the renderer may not be fully initialized yet;
-     *  therefor do not do any logic important to the renderer and 
+     *  therefore do not do any logic important to the renderer and 
      *  instead put that logic in initialize().
      */
     public constructor() {

@@ -6,6 +6,11 @@
     "description": "A template to create a module for Nexus using React.",
     "link": "https://github.com/aarontburn/nexus-template-react",
     "platforms": ["win32", "linux", "darwin"],
+    "author-id": null,
+    "git-latest": {
+        "git-username": null,
+        "git-repo-name": null
+    },
     "build": {
         "build-version": 1,
         "excluded": ["electron.ts", "./renderer/react-wrapper"],

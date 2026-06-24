@@ -25,7 +25,7 @@ if (window.common.args.includes("--dev") &&
 }
 
 function sendToIFrame(eventType: string, ...data: any[]) {
-    iframe.contentWindow.postMessage({ eventType: eventType, data: data }, "*");
+    iframe.contentWindow!.postMessage({ eventType: eventType, data: data }, "*");
 }
 
 /**
